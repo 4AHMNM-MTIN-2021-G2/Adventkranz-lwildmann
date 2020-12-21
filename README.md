@@ -6,7 +6,9 @@ Of course, it matches with winter and especially december and christmas. I have 
 Furthermore, on every Adventsonntag, a candle will light up.
 
 ### Development platform: 
-(Windows, Unity 2020.1.5f1, Visual Studio Community 2019)
+- Windows 10
+- Unity 2020.1.5f1
+- Visual Studio Community 2019
 
 ### Target platform: 
 WebGL, Android
