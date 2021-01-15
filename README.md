@@ -29,4 +29,13 @@ Installation process, e.g. step by step instructions that I can run the project 
 
 ### Lessons Learned: 
 
+Scriptable Object (SC)
+
+It is basically a class one can derive from if one wants to create objects which do not need to be attached to certain game objects.
+For assets which are only meant to store data, it is most useful.
+
+It has properties like "name" and "hideFlags" and public methods like "ToString".
+
+One can easily create them with "CreateAssetMenuAttribute".
+
 Copyright by lwildmann 
