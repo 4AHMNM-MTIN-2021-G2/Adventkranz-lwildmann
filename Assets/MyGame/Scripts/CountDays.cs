@@ -1,17 +1,18 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class CountDays : MonoBehaviour
 {
     public Text daysGui;
 
-    System.DateTime christmasDay;
-    System.DateTime firstAdvent;
-    System.DateTime secondAdvent;
-    System.DateTime thirdAdvent;
-    System.DateTime fourthAdvent;
+    DateTime christmasDay;
+    DateTime firstAdvent;
+    DateTime secondAdvent;
+    DateTime thirdAdvent;
+    DateTime fourthAdvent;
 
-    System.DateTime currentDay;
+    DateTime currentDay;
 
     private int days = 0;
 
@@ -20,19 +21,24 @@ public class CountDays : MonoBehaviour
     void Start()
     {
 
-        firstAdvent = new System.DateTime(2020, 11, 29);
-        secondAdvent = new System.DateTime(2020, 12, 06);
-        thirdAdvent = new System.DateTime(2020, 12, 13);
-        fourthAdvent = new System.DateTime(2020, 12, 20);
-        christmasDay = new System.DateTime(2020, 12, 24);
+        firstAdvent = new DateTime(2020, 11, 29);
+        secondAdvent = new DateTime(2020, 12, 06);
+        thirdAdvent = new DateTime(2020, 12, 13);
+        fourthAdvent = new DateTime(2020, 12, 20);
+        christmasDay = new DateTime(2020, 12, 24);
 
-        currentDay = System.DateTime.Today;
+        currentDay = DateTime.Today;
 
         //exclusive christmasday
-        TotalDaysToChristmas();
+        //TotalDaysToChristmasV1();
+        //TotalDaysToChristmasV2();
+        //TotalDaysToChristmasV3();
+        //TotalDaysToChristmasV4();
+
+        daysGui.text = TotalDaysToChristmasV4().ToString();
     }
 
-    private void TotalDaysToChristmas()
+    private void TotalDaysToChristmasV1()
     {
         while (currentDay.CompareTo(christmasDay) < 0)
         {
@@ -41,6 +47,36 @@ public class CountDays : MonoBehaviour
         }
 
         daysGui.text = days.ToString();
+    }
+
+    private void TotalDaysToChristmasV2()
+    {
+        int myDays = 0;
+
+        while (currentDay.CompareTo(christmasDay) < 0)
+        {
+            currentDay = currentDay.AddDays(1);
+            myDays++;
+        }
+
+        daysGui.text = myDays.ToString();
+    }
+
+    private void TotalDaysToChristmasV3()
+    {
+        double myDays = christmasDay.Subtract(currentDay).TotalDays;
+        daysGui.text = myDays.ToString();
+    }
+
+    private double TotalDaysToChristmasV4()
+    {
+        return christmasDay.Subtract(currentDay).TotalDays;
+    }
+
+    void TestLocalVars()
+    {
+        Debug.Log("Test instanz; " + days);
+        //Debug.Log("Test local; " + myDays);
     }
 }
 
